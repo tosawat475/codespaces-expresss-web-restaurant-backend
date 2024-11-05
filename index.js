@@ -69,7 +69,7 @@ let menudrink = [
   { id: 6, name: 'ชาเย็น', price: 35, image: 'https://s3.ap-southeast-1.amazonaws.com/photos.foodietop100.com/RECS/1404_20190905142938.jpg' },
   { id: 7, name: 'นมชมพู', price: 20, image: 'https://images.aws.nestle.recipes/resized/fd7ec4da78cbff67ac28882f1a5f9192_น้ำแดง-นมสด_1200_600.jpeg' },
   { id: 8, name: 'นมสด', price: 25, image: 'https://mpics.mgronline.com/pics/Images/561000008042902.JPEG' },
-  { id: 9, name: 'น้ำเขียวโซดา', price: 20, image: 'https://s3.ap-southeast-1.amazonaws.com/photos.foodietop100.com/RECS/2846_201902261450110.jpg' },
+  { id: 9, name: 'น้ำเขียวโซดา', price: 20, image: 'https://s3.ap-southeast-1.amazonaws.com/photos.foodietop100.com/RECS/2846_20190226145010.jpg' },
   { id: 10, name: 'น้ำส้ม', price: 30, image: 'https://www.sentangsedtee.com/wp-content/uploads/2018/06/7D5A5094-696x464.jpg' },
   { id: 11, name: 'กาแฟเย็น', price: 35, image: 'https://s3.ap-southeast-1.amazonaws.com/photos.foodietop100.com/RECS/4125_20180131112338.jpg' },
   { id: 12, name: 'น้ำมะนาว', price: 25, image: 'https://scontent.xx.fbcdn.net/v/t1.15752-9/331216200_1301236930420513_7478749164564689058_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=aee45a&_nc_eui2=AeFBG7vBxMVOZ7h1beDXauauz8ED4TeJn3X0c5bLZH9WnTZGT-99-1tHPSxWJMnzErh9RgijIOG3IDv7BbBGWx3u&_nc_ohc=PLp34Kk_Y_oAX9KOFYJ&_nc_ht=scontent.xx&oh=03_AdQWwGPGBxHweJmJ2Wjq_p6xUplgDWuEpZmrM7IpSGyH4A&oe=64D7EE8A' },
