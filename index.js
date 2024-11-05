@@ -80,6 +80,7 @@ let menudrink = [
   { id: 17, name: 'น้ำผลไม้รวม', price: 45, image: 'https://img.wongnai.com/p/1920x0/2021/03/24/1c1fdb51c11745b68e54d6a3cf3fc8f8.jpg' },
 ];
 
+//ดูข้อมูลเมนูทั้งหมด
 app.get('/api/menuItem', (req, res) => {
   res.json(menuItems)
 })
@@ -96,6 +97,8 @@ app.get('/api/menudrink', (req, res) => {
   res.json(menudrink)
 })
 
+
+//ดูข้อมูลเมนูใช้ ID
 app.get('/api/menuItem/:id', (req, res) => {
   const itemId = parseInt(req.params.id)
   const item = menuItems.find(item => item.id === itemId)
@@ -106,6 +109,38 @@ app.get('/api/menuItem/:id', (req, res) => {
   }
 })
 
+app.get('/api/menumain/:id', (req, res) => {
+  const itemId = parseInt(req.params.id)
+  const item = menumain.find(item => item.id === itemId)
+  if (item) {
+    res.json(item)
+  } else {
+    res.status(404).json({message: 'Item not found'})
+  }
+})
+
+app.get('/api/menusnack/:id', (req, res) => {
+  const itemId = parseInt(req.params.id)
+  const item = menusnack.find(item => item.id === itemId)
+  if (item) {
+    res.json(item)
+  } else {
+    res.status(404).json({message: 'Item not found'})
+  }
+})
+
+app.get('/api/menudrink/:id', (req, res) => {
+  const itemId = parseInt(req.params.id)
+  const item = menudrink.find(item => item.id === itemId)
+  if (item) {
+    res.json(item)
+  } else {
+    res.status(404).json({message: 'Item not found'})
+  }
+})
+
+
+//create ใหม่
 app.post('/api/menuItem', (req, res) => {
   const newItem = {
     id: menuItems.length + 1,
@@ -117,6 +152,41 @@ app.post('/api/menuItem', (req, res) => {
   res.status(201).json(newItem)
 })
 
+app.post('/api/menumain', (req, res) => {
+  const newItem = {
+    id: menumain.length + 1,
+    name: req.body.name,
+    price: req.body.price,
+    image: req.body.image
+  }
+  menumain.push(newItem)
+  res.status(201).json(newItem)
+})
+
+app.post('/api/menusnack', (req, res) => {
+  const newItem = {
+    id: menusnack.length + 1,
+    name: req.body.name,
+    price: req.body.price,
+    image: req.body.image
+  }
+  menusnack.push(newItem)
+  res.status(201).json(newItem)
+})
+
+app.post('/api/menudrink', (req, res) => {
+  const newItem = {
+    id: menudrink.length + 1,
+    name: req.body.name,
+    price: req.body.price,
+    image: req.body.image
+  }
+  menudrink.push(newItem)
+  res.status(201).json(newItem)
+})
+
+
+//update ข้อมูล
 app.put('/api/menuItem/:id', (req, res) => {
   const itemId = parseInt(req.params.id)
   const itemIndex = menuItems.findIndex(item => item.id === itemId)
@@ -134,11 +204,96 @@ app.put('/api/menuItem/:id', (req, res) => {
   }
 })
 
+app.put('/api/menumain/:id', (req, res) => {
+  const itemId = parseInt(req.params.id)
+  const itemIndex = menumain.findIndex(item => item.id === itemId)
+  if (itemIndex !== -1) {
+    const updatedItem = {
+      id: itemId,
+      name: req.body.name,
+      price: req.body.price,
+      image: req.body.image
+    }
+    menumain[itemIndex] = updatedItem
+    res.json(updatedItem)
+  } else {
+    res.status(404).json({message: 'Item not found'})
+  }
+})
+
+app.put('/api/menusnack/:id', (req, res) => {
+  const itemId = parseInt(req.params.id)
+  const itemIndex = menusnack.findIndex(item => item.id === itemId)
+  if (itemIndex !== -1) {
+    const updatedItem = {
+      id: itemId,
+      name: req.body.name,
+      price: req.body.price,
+      image: req.body.image
+    }
+    menusnack[itemIndex] = updatedItem
+    res.json(updatedItem)
+  } else {
+    res.status(404).json({message: 'Item not found'})
+  }
+})
+
+app.put('/api/menudrink/:id', (req, res) => {
+  const itemId = parseInt(req.params.id)
+  const itemIndex = menudrink.findIndex(item => item.id === itemId)
+  if (itemIndex !== -1) {
+    const updatedItem = {
+      id: itemId,
+      name: req.body.name,
+      price: req.body.price,
+      image: req.body.image
+    }
+    menudrink[itemIndex] = updatedItem
+    res.json(updatedItem)
+  } else {
+    res.status(404).json({message: 'Item not found'})
+  }
+})
+
+//delete ข้อมูล
 app.delete('/api/menuItem/:id', (req, res) => {
   const itemId = parseInt(req.params.id)
   const itemIndex = menuItems.findIndex(item => item.id === itemId)
   if (itemIndex !== -1) {
     menuItems.splice(itemIndex, 1)
+    res.json({message: 'Item deleted successfully'})
+  } else {
+    res.status(404).json({message: 'Item not found'})
+  }
+})
+
+app.delete('/api/menumain/:id', (req, res) => {
+  const itemId = parseInt(req.params.id)
+  const itemIndex = menumain.findIndex(item => item.id === itemId)
+  if (itemIndex !== -1) {
+    menumain.splice(itemIndex, 1)
+    res.json({message: 'Item deleted successfully'})
+  } else {
+    res.status(404).json({message: 'Item not found'})
+  }
+})
+
+app.delete('/api/menusnack/:id', (req, res) => {
+  const itemId = parseInt(req.params.id)
+  const itemIndex = menusnack.findIndex(item => item.id === itemId)
+  if (itemIndex !== -1) {
+    menusnack.splice(itemIndex, 1)
+    res.json({message: 'Item deleted successfully'})
+  } else {
+    res.status(404).json({message: 'Item not found'})
+  }
+})
+
+app.delete('/api/menudrink/:id', (req, res) => {
+  const itemId = parseInt(req.params.id)
+  const itemIndex = menudrink.findIndex(item => item.id === itemId)
+  if (itemIndex !== -1) {
+    menudrink.splice(itemIndex, 1)
     res.json({message: 'Item deleted successfully'})
   } else {
     res.status(404).json({message: 'Item not found'})
